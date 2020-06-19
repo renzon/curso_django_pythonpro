@@ -1,0 +1,11 @@
+language: python
+python:
+  - 3.8
+install:
+  - pip install -q pipenv codecov
+  - pipenv sync -d
+script:
+  - flake8
+  - pytest curso_django_pythonpro --cov=curso_django_pythonpro
+after_success:
+  - codecov
